@@ -1,31 +1,26 @@
-/* <div id="parent">
-          <div id="child">
-               <h1> i am a h1 tag</h1>
-               <h2> i am a h2 tag</h2>
-          </div>
-          <div id="child2">
-               <h1> i am a h1 tag</h1>
-               <h2> i am a h2 tag</h2>
-          </div>
-   </div>
-   we need to use array for the parent object to pass
-    multiple div childs
-*/
 import React from "react";
 import ReactDOM from "react-dom/client";
-const parent = React.createElement("div",{id: "parent"},[
-     React.createElement("div",{id: "child"},[
-          React.createElement("h1",{},"I,m a h tag"),
-          React.createElement("h1",{},"I,m a h2 tag")
-     ]),
-     React.createElement("div",{id: "child"},[
-          React.createElement("h1",{},"I,m a h1 tag"),
-          React.createElement("h1",{},"I,m a h2 tag")
-     ])
-]
-     
-)     
-        
-console.log(parent); // object       
+// React Element
+const title = (
+     <h1 className="Head">
+          React Element in Class Composition 
+      </h1>
+);  
+// functional component 
+const Title = () => (
+     <h1 className="Head">
+          Hello
+     </h1>
+);    
+// component composition 
+const HeadingComponent = () => (
+     <div>
+          {title} // code inside this is nothing but a js code in this way we call react elements in a component
+          <Title /> // this way we used to call one component in another component and this is called as component composition 
+          <h1 className="Heading">
+               Hello React
+          </h1>
+     </div>
+);     
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<HeadingComponent />);  // in this way we render a component  
